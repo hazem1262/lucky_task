@@ -49,4 +49,10 @@ dependencies {
     // glide dependencies
     implementation rootProject.ext.libraries.glide
     kapt rootProject.ext.apt.glideCompiler
+
+    // view model and life data dependencies
+    implementation rootProject.ext.libraries.viewModelLifeData
+    implementation rootProject.ext.libraries.viewModelLifeDataLight
+    kapt rootProject.ext.apt.lifecycleCompiler
+
 }

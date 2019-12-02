@@ -1,14 +1,19 @@
 ext {
-    daggerVersion = "2.25.2"
+    daggerVersion   = "2.25.2"
+    materialVersion = "1.0.0"
+    glideVersion    = "4.10.0"
 
     libraries = [
             dagger                     : "com.google.dagger:dagger:${daggerVersion}",
             daggerAndroid              : "com.google.dagger:dagger-android:${daggerVersion}",
-            daggerAndroidSupport       : "com.google.dagger:dagger-android-support:${daggerVersion}"
+            daggerAndroidSupport       : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            material                   : "com.google.android.material:material:${materialVersion}",
+            glide                      : "com.github.bumptech.glide:glide:${glideVersion}"
     ]
 
     apt = [
             daggerCompiler        : "com.google.dagger:dagger-compiler:${daggerVersion}",
-            daggerProcessor       : "com.google.dagger:dagger-android-processor:${daggerVersion}"
+            daggerProcessor       : "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            glideCompiler         : "com.github.bumptech.glide:compiler:${glideVersion}"
     ]
 }

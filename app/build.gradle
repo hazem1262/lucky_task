@@ -55,4 +55,9 @@ dependencies {
     implementation rootProject.ext.libraries.viewModelLifeDataLight
     kapt rootProject.ext.apt.lifecycleCompiler
 
+    // retrofit dependencies
+    implementation rootProject.ext.libraries.retrofit
+    implementation rootProject.ext.libraries.gson
+    implementation rootProject.ext.libraries.retrofitRxAdapter
+
 }

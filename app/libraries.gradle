@@ -3,6 +3,7 @@ ext {
     materialVersion   = "1.0.0"
     glideVersion      = "4.10.0"
     lifecycle_version = "2.1.0"
+    retrofit          = "2.6.2"
 
     libraries = [
             dagger                     : "com.google.dagger:dagger:${daggerVersion}",
@@ -11,7 +12,10 @@ ext {
             material                   : "com.google.android.material:material:${materialVersion}",
             glide                      : "com.github.bumptech.glide:glide:${glideVersion}",
             viewModelLifeData          : "androidx.lifecycle:lifecycle-extensions:${lifecycle_version}",
-            viewModelLifeDataLight     : "androidx.lifecycle:lifecycle-runtime:${lifecycle_version}"
+            viewModelLifeDataLight     : "androidx.lifecycle:lifecycle-runtime:${lifecycle_version}",
+            retrofit                   : "com.squareup.retrofit2:retrofit:${retrofit}",
+            gson                       : "com.squareup.retrofit2:converter-gson:${retrofit}",
+            retrofitRxAdapter          : "com.squareup.retrofit2:adapter-rxjava2:${retrofit}"
     ]
 
     apt = [

@@ -60,4 +60,8 @@ dependencies {
     implementation rootProject.ext.libraries.gson
     implementation rootProject.ext.libraries.retrofitRxAdapter
 
+    // rx java and rx android
+    implementation rootProject.ext.libraries.rxJava2
+    implementation rootProject.ext.libraries.rxAndroid
+
 }

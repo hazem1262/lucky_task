@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject
+package com.example.mvvmstarterproject.test
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

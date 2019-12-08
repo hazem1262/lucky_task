@@ -19,7 +19,7 @@ package com.example.mvvmstarterproject.di.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.mvvmstarterproject.MainViewModel
+import com.example.mvvmstarterproject.test.MainViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

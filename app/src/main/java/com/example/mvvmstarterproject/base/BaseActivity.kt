@@ -14,7 +14,7 @@ open class BaseActivity : AppCompatActivity() {
     lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
     }
 }

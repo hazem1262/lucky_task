@@ -5,11 +5,16 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseActivity
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity() ,HasAndroidInjector {
 
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
     @Inject
     lateinit var testDagger:String
     
@@ -31,4 +36,6 @@ class MainActivity : BaseActivity() {
         val testFragmentA = TestFragmentA()
         supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, testFragmentA).commit()
     }
+
+    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
 }

@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseFragment
-import kotlinx.android.synthetic.main.test_fragment_a.*
-import javax.inject.Inject
 
 
 class TestFragmentA : BaseFragment() {

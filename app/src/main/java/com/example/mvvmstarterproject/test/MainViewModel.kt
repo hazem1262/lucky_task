@@ -2,9 +2,10 @@ package com.example.mvvmstarterproject.test
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.mvvmstarterproject.base.BaseViewModel
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor() : ViewModel() {
+class MainViewModel @Inject constructor() : BaseViewModel() {
     @Inject
     lateinit var testString: String
     init {

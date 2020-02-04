@@ -2,6 +2,7 @@ package com.example.mvvmstarterproject.test
 
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseActivity
@@ -23,8 +24,7 @@ class MainActivity : BaseActivity() ,HasAndroidInjector {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProviders
-            .of(this, viewModelFactory)
+        viewModel = ViewModelProvider(this, viewModelFactory)
             .get(MainViewModel::class.java)
         viewModel.printTestString()
         Log.d("test", viewModel.toString())
@@ -33,7 +33,7 @@ class MainActivity : BaseActivity() ,HasAndroidInjector {
     }
 
     private fun initFragment() {
-        val testFragmentA = TestFragmentA()
+        val testFragmentA = TestFragmentA.newInstance()
         supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, testFragmentA).commit()
     }
 

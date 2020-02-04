@@ -74,4 +74,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:${rxJava2}"
     implementation "io.reactivex.rxjava2:rxandroid:${rxAndroid}"
 
+    // alerter
+    api 'com.tapadoo.android:alerter:5.0.0'
+
+    // Logging
+    api 'com.jakewharton.timber:timber:4.7.1'
+    api 'com.orhanobut:logger:2.2.0'
 }

@@ -1,24 +1,19 @@
 package com.example.mvvmstarterproject.test
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseFragment
+import kotlinx.android.synthetic.main.test_fragment_a.*
 
 
-class TestFragmentA : BaseFragment() {
-
-    /*@Inject
-    lateinit var testDagger:String*/
+class TestFragmentA : BaseFragment<TestViewModelA>() {
 
     companion object {
         fun newInstance() = TestFragmentA()
     }
-
-    private lateinit var viewModel: TestViewModelA
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +24,7 @@ class TestFragmentA : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TestViewModelA::class.java)
-//        test.text = testDagger
+        test.text = vm.testString
     }
 
 }

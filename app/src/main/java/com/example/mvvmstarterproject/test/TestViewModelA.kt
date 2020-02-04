@@ -1,7 +1,9 @@
 package com.example.mvvmstarterproject.test
 
-import androidx.lifecycle.ViewModel
+import com.example.mvvmstarterproject.base.BaseViewModel
+import javax.inject.Inject
 
-class TestViewModelA : ViewModel() {
-    // TODO: Implement the ViewModel
+class TestViewModelA @Inject constructor() : BaseViewModel() {
+    @Inject
+    lateinit var testString: String
 }

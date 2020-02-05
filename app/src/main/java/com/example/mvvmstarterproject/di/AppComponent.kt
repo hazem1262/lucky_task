@@ -1,6 +1,7 @@
 package com.example.mvvmstarterproject.di
 
 import android.app.Application
+import android.content.Context
 import com.example.mvvmstarterproject.BaseApplication
 import com.example.mvvmstarterproject.di.modules.ActivityModules
 import com.example.mvvmstarterproject.di.modules.AppModule
@@ -23,7 +24,8 @@ interface AppComponent : AndroidInjector<BaseApplication> {
     interface Builder{
         @BindsInstance
         fun application(application: Application): Builder
-
+        @BindsInstance
+        fun context(context: Context): Builder
         fun build(): AppComponent
     }
 }

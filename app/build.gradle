@@ -18,6 +18,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField 'String', 'SERVER_URL', '"https://jsonplaceholder.typicode.com/"'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -69,6 +72,8 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:${retrofit}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofit}"
     implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit}"
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
     // rx java and rx android
     implementation "io.reactivex.rxjava2:rxjava:${rxJava2}"

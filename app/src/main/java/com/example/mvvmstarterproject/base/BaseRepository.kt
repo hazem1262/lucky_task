@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.Response
 import timber.log.Timber
 
-class BaseRepository(private val connectivityUtils: ConnectivityUtils) {
+open class BaseRepository(private val connectivityUtils: ConnectivityUtils) {
 
     private val gSon = Gson()
     private val noInternetError = Result.Error(

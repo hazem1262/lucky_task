@@ -12,14 +12,12 @@ import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity() ,HasAndroidInjector {
+class MainActivity : BaseActivity<MainViewModel>(),HasAndroidInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
     @Inject
     lateinit var testDagger:String
-    
-    lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

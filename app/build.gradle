@@ -31,11 +31,14 @@ android {
 dependencies {
     ext.lifecycle_version = "2.2.0"
     ext.daggerVersion     = "2.25.2"
-    ext.materialVersion   = "1.0.0"
+    ext.materialVersion   = "1.1.0"
     ext.glideVersion      = "4.10.0"
     ext.retrofit          = "2.6.2"
     ext.rxJava2           = "2.2.15"
     ext.rxAndroid         = "2.1.1"
+    ext.alerter           = "5.0.0"
+    ext.timper            = "4.7.1"
+    ext.customLogger      = "2.2.0"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -80,9 +83,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:${rxAndroid}"
 
     // alerter
-    api 'com.tapadoo.android:alerter:5.0.0'
+    api "com.tapadoo.android:alerter:${alerter}"
 
     // Logging
-    api 'com.jakewharton.timber:timber:4.7.1'
-    api 'com.orhanobut:logger:2.2.0'
+    api "com.jakewharton.timber:timber:${timper}"
+    api "com.orhanobut:logger:${customLogger}"
 }

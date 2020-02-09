@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.get
 import com.example.mvvmstarterproject.di.viewmodels.ViewModelFactory
-import com.example.mvvmstarterproject.test.MainViewModel
 import com.example.mvvmstarterproject.utils.EventObserver
 import com.example.mvvmstarterproject.utils.MessageUtils
 import com.example.mvvmstarterproject.utils.network.LoadingHandler
@@ -22,12 +19,12 @@ open class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    lateinit var vm:ViewModel
+    lateinit var viewModel:ViewModel
     private lateinit var loadingHandler: LoadingHandler
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        vm = ViewModelProvider(this, viewModelFactory).get(viewModelClass())
+        viewModel = ViewModelProvider(this, viewModelFactory).get(viewModelClass())
         loadingHandler = LoadingHandler.getInstance(requireActivity())
         initLoading()
         initError()
@@ -39,7 +36,7 @@ open class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
             .actualTypeArguments[0] as Class<ViewModel>)
     }
     private fun initError() {
-        vm.error.observe(viewLifecycleOwner, EventObserver {
+        viewModel.error.observe(viewLifecycleOwner, EventObserver {
             hideLoading()
             showError(it)
         })
@@ -57,7 +54,7 @@ open class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
     }
 
     private fun initLoading() {
-        vm.loading.observe(viewLifecycleOwner, EventObserver {
+        viewModel.loading.observe(viewLifecycleOwner, EventObserver {
             if (it.loading) showLoading()
             else hideLoading()
         })

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import com.example.mvvmstarterproject.di.viewmodels.ViewModelFactory
 import com.example.mvvmstarterproject.utils.EventObserver
 import com.example.mvvmstarterproject.utils.MessageUtils
@@ -22,12 +23,19 @@ open class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
     lateinit var viewModel:ViewModel
     private lateinit var loadingHandler: LoadingHandler
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(getLifeCycleOwner(), viewModelFactory).get(viewModelClass())
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(viewModelClass())
         loadingHandler = LoadingHandler.getInstance(requireActivity())
         initLoading()
         initError()
+    }
+    open fun getLifeCycleOwner(): ViewModelStoreOwner {
+        return this
     }
     @Suppress("UNCHECKED_CAST")
     private fun viewModelClass(): Class<ViewModel> {

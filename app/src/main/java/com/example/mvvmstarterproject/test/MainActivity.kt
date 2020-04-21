@@ -12,10 +12,8 @@ import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity<MainViewModel>(),HasAndroidInjector {
+class MainActivity : BaseActivity<MainViewModel>() {
 
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
     @Inject
     lateinit var testDagger:String
 
@@ -35,5 +33,4 @@ class MainActivity : BaseActivity<MainViewModel>(),HasAndroidInjector {
         supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, testFragmentA).commit()
     }
 
-    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
 }

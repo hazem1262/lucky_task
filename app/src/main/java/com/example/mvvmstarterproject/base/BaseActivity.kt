@@ -1,8 +1,6 @@
 package com.example.mvvmstarterproject.base
 
-import android.app.Activity
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.mvvmstarterproject.di.viewmodels.ViewModelFactory
@@ -17,7 +15,11 @@ import dagger.android.HasAndroidInjector
 import java.lang.reflect.ParameterizedType
 import javax.inject.Inject
 
-open class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() {
+open class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() , HasAndroidInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var loadingHandler: LoadingHandler
@@ -68,5 +70,5 @@ open class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() {
     open fun showLoading() {
         loadingHandler.showLoading()
     }
-
+    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
 }

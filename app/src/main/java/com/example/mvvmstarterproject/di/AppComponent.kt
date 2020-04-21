@@ -2,7 +2,7 @@ package com.example.mvvmstarterproject.di
 
 import android.app.Application
 import android.content.Context
-import com.example.mvvmstarterproject.BaseApplication
+import com.example.mvvmstarterproject.application.BaseApplication
 import com.example.mvvmstarterproject.di.modules.ActivityModules
 import com.example.mvvmstarterproject.di.modules.AppModule
 import com.example.mvvmstarterproject.di.viewmodels.ViewModelModule

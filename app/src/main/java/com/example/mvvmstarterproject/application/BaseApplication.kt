@@ -1,6 +1,7 @@
-package com.example.mvvmstarterproject
+package com.example.mvvmstarterproject.application
 
 import android.app.Application
+import com.example.mvvmstarterproject.BuildConfig
 import com.example.mvvmstarterproject.di.DaggerAppComponent
 import com.example.mvvmstarterproject.utils.ReleaseTree
 import com.orhanobut.logger.AndroidLogAdapter

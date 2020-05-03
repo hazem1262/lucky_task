@@ -7,12 +7,12 @@ MVVV design pattern as recomended in docs [guide to app archticture](https://dev
 
 ## Technology used
 
-* [Coroutines] (https://kotlinlang.org/docs/reference/coroutines-overview.html) for asynchronous programming
-* [dagger] (https://github.com/google/dagger) for dependency injection
-* [databinding] (https://developer.android.com/topic/libraries/data-binding) to bind data to ui
-* [LiveData] (https://developer.android.com/topic/libraries/architecture/livedata)
-* [navigation] (https://developer.android.com/guide/navigation/) to handle navigation between screens
-* [ViewModel] (https://developer.android.com/topic/libraries/architecture/viewmodel) to bind data to ui
+* [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) for asynchronous programming
+* [dagger](https://github.com/google/dagger) for dependency injection
+* [databinding](https://developer.android.com/topic/libraries/data-binding) to bind data to ui
+* [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+* [navigation](https://developer.android.com/guide/navigation/) to handle navigation between screens
+* [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) to bind data to ui
 * [Retrofit] for networking
 * [timper for] logging
 * [customLogger] for logging formatting

@@ -13,7 +13,14 @@ class OffersListViewModel @Inject constructor(private val offersRepository: Offe
             handleResult(offersRepository.getListOfOffers()){ offersResponse ->
                 val offers = arrayListOf<Offer>()
                 offersResponse.data.sections.forEach {
-                    offers.addAll(it.offers)
+                    section -> offers.addAll(
+                        section.offers.apply {
+                            forEachIndexed { index, offer ->
+                                offer.sectionTitle = section.title?:""
+                                offer.isSectionVisible = index == 0
+                            }
+                        }
+                    )
                 }
                 offersLiveData.postValue(offers)
             }

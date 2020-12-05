@@ -27,7 +27,9 @@ data class OffersResponse(
             @SerializedName("tags")
             val tags: String?,
             @SerializedName("title")
-            val title: String?
+            val title: String?,
+            var sectionTitle:String = "",
+            var isSectionVisible:Boolean = false
         )
     }
 }

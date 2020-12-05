@@ -1,6 +1,6 @@
 package com.example.mvvmstarterproject.di.modules.fragment.modules
 
-import com.example.mvvmstarterproject.test.TestFragmentA
+import com.example.mvvmstarterproject.ui.TestFragmentA
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

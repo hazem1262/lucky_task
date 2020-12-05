@@ -1,10 +1,10 @@
-package com.example.mvvmstarterproject.test
+package com.example.mvvmstarterproject.data.remote.offers
 
 
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface UserService {
+interface OffersService {
 
     @GET("users")
     suspend fun getListOfUsers(): Response<List<User>>

@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject.test
+package com.example.mvvmstarterproject.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

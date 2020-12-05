@@ -1,7 +1,6 @@
-package com.example.mvvmstarterproject.test
+package com.example.mvvmstarterproject.ui
 
 import android.util.Log
-import androidx.lifecycle.ViewModel
 import com.example.mvvmstarterproject.base.BaseViewModel
 import javax.inject.Inject
 

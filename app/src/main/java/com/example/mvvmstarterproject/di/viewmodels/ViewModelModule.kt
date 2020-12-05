@@ -19,8 +19,8 @@ package com.example.mvvmstarterproject.di.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.mvvmstarterproject.test.MainViewModel
-import com.example.mvvmstarterproject.test.TestViewModelA
+import com.example.mvvmstarterproject.ui.MainViewModel
+import com.example.mvvmstarterproject.ui.TestViewModelA
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

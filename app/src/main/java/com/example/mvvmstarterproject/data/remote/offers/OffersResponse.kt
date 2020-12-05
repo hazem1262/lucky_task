@@ -3,15 +3,15 @@ package com.example.mvvmstarterproject.data.remote.offers
 
 import com.google.gson.annotations.SerializedName
 
-data class Offers(
+data class OffersResponse(
     @SerializedName("sections")
-    val sections: List<Section?>?,
+    val sections: List<Section>,
     @SerializedName("title")
     val title: String?
 ) {
     data class Section(
         @SerializedName("items")
-        val offers: List<Offer?>?,
+        val offers: List<Offer>,
         @SerializedName("title")
         val title: String?
     ) {

@@ -4,28 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseFragment
+import com.example.mvvmstarterproject.databinding.OffersListFragmentBinding
 
 class OffersListFragment : BaseFragment<OffersListViewModel>() {
 
+    private val offersAdapter = OffersAdapter()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.offers_list_fragment, container, false)
+        return DataBindingUtil.inflate<OffersListFragmentBinding>(inflater, R.layout.offers_list_fragment, container, false).apply {
+            lifecycleOwner = viewLifecycleOwner
+            vm = viewModel
+            offersRecyclerView.adapter = offersAdapter
+        }.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel.getOffersList()
-        viewModel.offersLiveData.observe(viewLifecycleOwner, Observer {
-            if (it != null){
-                Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
-            }
-        })
     }
 
 }

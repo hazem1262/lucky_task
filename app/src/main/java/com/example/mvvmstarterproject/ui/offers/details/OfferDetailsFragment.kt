@@ -1,6 +1,5 @@
 package com.example.mvvmstarterproject.ui.offers.details
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,12 +8,6 @@ import android.view.ViewGroup
 import com.example.mvvmstarterproject.R
 
 class OfferDetailsFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = OfferDetailsFragment()
-    }
-
-    private lateinit var viewModel: OfferDetailsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +18,6 @@ class OfferDetailsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(OfferDetailsViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

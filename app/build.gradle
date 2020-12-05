@@ -21,7 +21,7 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField 'String', 'SERVER_URL', '"https://jsonplaceholder.typicode.com/"'
+            buildConfigField 'String', 'SERVER_URL', '"https://www.nasable.com/luckytest/api/"'
         }
         release {
             minifyEnabled false
@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     ext.lifecycle_version = "2.2.0"
     ext.daggerVersion     = "2.25.2"
     ext.materialVersion   = "1.1.0"

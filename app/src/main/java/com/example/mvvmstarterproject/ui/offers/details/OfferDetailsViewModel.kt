@@ -1,7 +1,6 @@
 package com.example.mvvmstarterproject.ui.offers.details
 
-import androidx.lifecycle.ViewModel
+import com.example.mvvmstarterproject.base.BaseViewModel
+import javax.inject.Inject
 
-class OfferDetailsViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
-}
+class OfferDetailsViewModel @Inject constructor() : BaseViewModel()

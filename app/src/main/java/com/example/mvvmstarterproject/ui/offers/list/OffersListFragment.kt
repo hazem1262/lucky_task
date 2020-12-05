@@ -1,20 +1,15 @@
 package com.example.mvvmstarterproject.ui.offers.list
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.example.mvvmstarterproject.R
+import com.example.mvvmstarterproject.base.BaseFragment
 
-class OffersListFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = OffersListFragment()
-    }
-
-    private lateinit var viewModel: OffersListViewModel
+class OffersListFragment : BaseFragment<OffersListViewModel>() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +20,12 @@ class OffersListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(OffersListViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel.getOffersList()
+        viewModel.offersLiveData.observe(viewLifecycleOwner, Observer {
+            if (it != null){
+                Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
 }

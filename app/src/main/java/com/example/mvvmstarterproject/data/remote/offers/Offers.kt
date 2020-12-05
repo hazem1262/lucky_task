@@ -11,11 +11,11 @@ data class Offers(
 ) {
     data class Section(
         @SerializedName("items")
-        val items: List<Item?>?,
+        val offers: List<Offer?>?,
         @SerializedName("title")
         val title: String?
     ) {
-        data class Item(
+        data class Offer(
             @SerializedName("brand")
             val brand: String?,
             @SerializedName("detailUrl")

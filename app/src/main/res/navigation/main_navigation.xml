@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_navigation.xml">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation.xml"
+    app:startDestination="@id/offersListFragment">
 
+    <fragment
+        android:id="@+id/offersListFragment"
+        android:name="com.example.mvvmstarterproject.ui.offers.list.OffersListFragment"
+        android:label="offers_list_fragment"
+        tools:layout="@layout/offers_list_fragment" >
+        <action
+            android:id="@+id/action_offersListFragment_to_offerDetailsFragment"
+            app:destination="@id/offerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offerDetailsFragment"
+        android:name="com.example.mvvmstarterproject.ui.offers.details.OfferDetailsFragment"
+        android:label="offer_details_fragment"
+        tools:layout="@layout/offer_details_fragment" />
 </navigation>

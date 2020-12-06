@@ -12,8 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_12"
-        android:layout_marginBottom="@dimen/space_12">
+        >
 
         <TextView
             android:id="@+id/sectionHeader"
@@ -22,35 +21,56 @@
             android:text="@{offer.sectionTitle}"
             tools:text="Top Cashbacks"
             app:goneUnless="@{offer.isSectionVisible}"
+            android:layout_marginTop="24dp"
+            style="@style/SFBTextAppearance.SemiBold"
+            android:textSize="24sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
-        <ImageView
+        <androidx.cardview.widget.CardView
             android:id="@+id/offerImage"
             android:layout_width="120dp"
             android:layout_height="80dp"
-            app:imageUrl="@{offer.imageUrl}"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="2dp"
+            android:elevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sectionHeader"
-            tools:src="@drawable/alerter_ic_face" />
+            app:layout_constraintTop_toBottomOf="@+id/sectionHeader">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:imageUrl="@{offer.imageUrl}"
+                tools:src="@drawable/alerter_ic_face" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/offerBrand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_16"
             android:text="@{offer.brand}"
+            style="@style/SFBTextAppearance.Normal"
+            android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
             app:layout_constraintHorizontal_bias="0.5"
-            android:layout_marginStart="@dimen/space_16"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@+id/offerImage"
-            app:layout_constraintTop_toBottomOf="@+id/sectionHeader"
+            app:layout_constraintTop_toTopOf="@+id/offerImage"
             tools:text="Burger Joint" />
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_heart_solid"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/offerFavoriteCount"
+            app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
+            app:layout_constraintTop_toTopOf="@+id/offerFavoriteCount" />
         <TextView
             android:id="@+id/offerFavoriteCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{offer.favoriteCount.toString()}"
+            android:text="@{offer.getFavouriteCountStyled()}"
+            style="@style/SFBTextAppearance.Normal"
+            android:textSize="12sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/offerBrand"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -64,7 +84,9 @@
             android:layout_marginStart="@dimen/space_16"
             android:layout_marginTop="2dp"
             android:text="@{offer.title}"
-            tools:text="Double max burger or double chicken ranch sandwich for EGP 25"
+            style="@style/SFBTextAppearance.Bold"
+            android:textSize="16sp"
+            tools:text="Double max burger or double chicken ranch sandwich for EGP 25, "
             app:layout_constraintStart_toEndOf="@+id/offerImage"
             app:layout_constraintTop_toBottomOf="@+id/offerBrand"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -77,6 +99,8 @@
             android:layout_marginTop="2dp"
             android:text="@{offer.tags}"
             tools:text="Discount"
+            style="@style/SFBTextAppearance.Normal"
+            android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/offerImage"
             app:layout_constraintTop_toBottomOf="@+id/offerTitle"
             app:layout_constraintEnd_toEndOf="parent"/>

@@ -33,6 +33,14 @@ data class OffersResponse(
             val title: String?,
             var sectionTitle:String = "",
             var isSectionVisible:Boolean = false
-        ):Parcelable
+        ):Parcelable{
+            fun getFavouriteCountStyled():String{
+                return if (favoriteCount?:0 < 1000){
+                    favoriteCount.toString()
+                } else{
+                    String.format("%.1f", (favoriteCount?.toDouble()!!)/1000) + " K"
+                }
+            }
+        }
     }
 }

@@ -12,27 +12,35 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         tools:context=".ui.offers.list.OffersListFragment">
 
         <TextView
             android:id="@+id/pageTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{vm.offersPageTitle}"
+            android:minHeight="40dp"
+            android:gravity="center"
+            tools:text="Offers"
+            android:textSize="@dimen/header_text_size"
+            style="@style/SFBTextAppearance.Bold"
+            android:background="@color/greyScale_200"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Offers" />
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/offersRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:paddingStart="@dimen/screen_side_padding"
+            android:paddingEnd="@dimen/screen_side_padding"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/pageTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:offers="@{vm.offersLiveData}"
-            tools:layout_editor_absoluteX="24dp"
             tools:listitem="@layout/offer_row_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

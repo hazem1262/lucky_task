@@ -6,4 +6,8 @@
     <color name="white">#FFF</color>
     <color name="redOrange">#ff3b30</color>
     <color name="limeade">#4A9D00</color>
+    <color name="greyScale_800">#222D34</color>
+    <color name="greyScale_600">#718897</color>
+    <color name="greyScale_500">#9DB0BD</color>
+    <color name="greyScale_200">#F7F9FA</color>
 </resources>

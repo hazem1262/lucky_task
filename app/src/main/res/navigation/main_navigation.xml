@@ -18,5 +18,9 @@
         android:id="@+id/offerDetailsFragment"
         android:name="com.example.mvvmstarterproject.ui.offers.details.OfferDetailsFragment"
         android:label="offer_details_fragment"
-        tools:layout="@layout/offer_details_fragment" />
+        tools:layout="@layout/offer_details_fragment" >
+        <argument
+            android:name="offer"
+            app:argType="com.example.mvvmstarterproject.data.remote.offers.OffersResponse$Section$Offer" />
+    </fragment>
 </navigation>

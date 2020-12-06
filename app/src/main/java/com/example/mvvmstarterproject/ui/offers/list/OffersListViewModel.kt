@@ -8,7 +8,12 @@ import javax.inject.Inject
 
 class OffersListViewModel @Inject constructor(private val offersRepository: OffersRepository) : BaseViewModel(){
     val offersLiveData: MutableLiveData<List<Offer>> = MutableLiveData()
-    fun getOffersList(){
+    val offersPageTitle:MutableLiveData<String> = MutableLiveData()
+
+    init {
+        getOffersList()
+    }
+    private fun getOffersList(){
         wrapBlockingOperation {
             handleResult(offersRepository.getListOfOffers()){ offersResponse ->
                 val offers = arrayListOf<Offer>()
@@ -23,6 +28,7 @@ class OffersListViewModel @Inject constructor(private val offersRepository: Offe
                     )
                 }
                 offersLiveData.postValue(offers)
+                offersPageTitle.postValue(offersResponse.data.title)
             }
         }
     }

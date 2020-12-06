@@ -12,7 +12,7 @@ import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer
 import com.example.mvvmstarterproject.databinding.OfferRowItemBinding
 
-class OffersAdapter: ListAdapter<Offer, RecyclerView.ViewHolder>(diffCallBack)  {
+class OffersAdapter(val selectOffer:(Offer)->Unit): ListAdapter<Offer, RecyclerView.ViewHolder>(diffCallBack)  {
     companion object {
         val diffCallBack = object : DiffUtil.ItemCallback<Offer>() {
             override fun areItemsTheSame(
@@ -53,6 +53,9 @@ class OffersAdapter: ListAdapter<Offer, RecyclerView.ViewHolder>(diffCallBack)  
         RecyclerView.ViewHolder(binding.root){
         fun bind(item:Offer){
             binding.apply {
+                root.setOnClickListener {
+                    selectOffer(item)
+                }
                 offer = item
                 executePendingBindings()
             }

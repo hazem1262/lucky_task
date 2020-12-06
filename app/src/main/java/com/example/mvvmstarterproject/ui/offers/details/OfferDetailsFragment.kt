@@ -5,9 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.example.mvvmstarterproject.R
+import com.example.mvvmstarterproject.base.BaseFragment
+import kotlinx.android.synthetic.main.offer_details_fragment.*
 
-class OfferDetailsFragment : Fragment() {
+class OfferDetailsFragment : BaseFragment<OfferDetailsViewModel>() {
+
+    private val args: OfferDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,6 +23,7 @@ class OfferDetailsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        offerTitle.text = args.offer.title
     }
 
 }

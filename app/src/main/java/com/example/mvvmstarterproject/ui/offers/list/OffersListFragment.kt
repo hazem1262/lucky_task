@@ -5,13 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseFragment
+import com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer
 import com.example.mvvmstarterproject.databinding.OffersListFragmentBinding
+import com.example.mvvmstarterproject.ui.offers.details.OfferDetailsFragmentArgs
 
 class OffersListFragment : BaseFragment<OffersListViewModel>() {
 
-    private val offersAdapter = OffersAdapter()
+    private val offersAdapter = OffersAdapter(::navigateToOfferDetails)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,7 +28,10 @@ class OffersListFragment : BaseFragment<OffersListViewModel>() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.getOffersList()
     }
 
+    private fun navigateToOfferDetails(offer:Offer){
+        val args = OfferDetailsFragmentArgs(offer)
+        findNavController().navigate(R.id.offerDetailsFragment, args.toBundle())
+    }
 }

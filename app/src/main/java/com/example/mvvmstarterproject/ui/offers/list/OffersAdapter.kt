@@ -2,6 +2,8 @@ package com.example.mvvmstarterproject.ui.offers.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData

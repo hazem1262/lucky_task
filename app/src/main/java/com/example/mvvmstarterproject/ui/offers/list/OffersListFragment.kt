@@ -26,9 +26,6 @@ class OffersListFragment : BaseFragment<OffersListViewModel>() {
         }.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
 
     private fun navigateToOfferDetails(offer:Offer){
         val args = OfferDetailsFragmentArgs(offer)

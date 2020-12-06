@@ -37,6 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sectionHeader">
             <ImageView
+                android:id="@+id/offerImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:imageUrl="@{offer.imageUrl}"

@@ -1,14 +1,14 @@
 package com.example.mvvmstarterproject.ui.offers.details
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseFragment
-import kotlinx.android.synthetic.main.offer_details_fragment.*
+import com.example.mvvmstarterproject.databinding.OfferDetailsFragmentBinding
 
 class OfferDetailsFragment : BaseFragment<OfferDetailsViewModel>() {
 
@@ -18,12 +18,16 @@ class OfferDetailsFragment : BaseFragment<OfferDetailsViewModel>() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.offer_details_fragment, container, false)
+        return DataBindingUtil.inflate<OfferDetailsFragmentBinding>(inflater, R.layout.offer_details_fragment, container, false).apply {
+            lifecycleOwner = viewLifecycleOwner
+            vm = viewModel
+            offer = args.offer
+        }.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        offerTitle.text = args.offer.title
+        viewModel.getOfferDetails(args.offer.detailUrl?:"")
     }
 
 }

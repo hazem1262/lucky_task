@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.offers.details.OfferDetailsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/offerTitle"
+    <data>
+        <variable
+            name="vm"
+            type="com.example.mvvmstarterproject.ui.offers.details.OfferDetailsViewModel" />
+        <variable
+            name="offer"
+            type="com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.offers.details.OfferDetailsFragment">
 
-</FrameLayout>
+            <ImageView
+                android:id="@+id/offerImage"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:imageUrl="@{offer.imageUrl}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/alerter_ic_face" />
+            <TextView
+                android:id="@+id/offerBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{offer.brand}"
+                app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
+                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginStart="@dimen/space_16"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/offerImage"
+                tools:text="Burger Joint" />
+
+            <TextView
+                android:id="@+id/offerFavoriteCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{offer.favoriteCount.toString()}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/offerBrand"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/offerBrand"
+                tools:text="1.5k" />
+            <TextView
+                android:id="@+id/offerTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_16"
+                android:layout_marginTop="2dp"
+                android:text="@{offer.title}"
+                tools:text="Double max burger or double chicken ranch sandwich for EGP 25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/offerBrand"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <TextView
+                android:id="@+id/offerDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_16"
+                android:layout_marginTop="2dp"
+                android:text="@{vm.offerDetailsLiveData.description}"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium aenean pharetra magna ac placerat vestibulum lectus. Dictumst quisque sagittis purus sit amet volutpat consequat mauris. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Viverra aliquet eget sit amet tellus. Sit amet justo donec enim diam vulputate ut. Vel facilisis volutpat est velit egestas dui id. A scelerisque purus semper eget. Volutpat commodo sed egestas egestas fringilla phasellus. Urna molestie at elementum eu facilisis sed. Velit ut tortor pretium viverra. Sit amet volutpat consequat mauris nunc congue. Accumsan in nisl nisi scelerisque eu. Duis at consectetur lorem donec massa sapien faucibus et."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/offerTitle"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/offerPriceHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/offerDescription"/>
+            <TextView
+                android:id="@+id/oldPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.offerDetailsLiveData.Price.old}"
+                tools:text="EGP500"
+                app:strikeThrough="@{true}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/offerPriceHeader"/>
+            <TextView
+                android:id="@+id/newPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.offerDetailsLiveData.Price.new}"
+                tools:text="EGP400"
+                app:layout_constraintStart_toEndOf="@+id/oldPrice"
+                app:layout_constraintTop_toBottomOf="@+id/offerPriceHeader"/>
+
+            <TextView
+                android:id="@+id/offerExpirationDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.offerDetailsLiveData.expiration}"
+                app:layout_constraintBottom_toBottomOf="@+id/newPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/offerPriceHeader"
+                tools:text="Exp.28 April 2020" />
+            <TextView
+                android:id="@+id/redemptionCap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:goneUnless="@{vm.offerDetailsLiveData.redemptionsCap!=null}"
+                android:text="@{String.format(@string/redemption_cap, vm.offerDetailsLiveData.redemptionsCap)}"
+                tools:text="REDEMPTIONS CAP: 4 TIMES"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/oldPrice"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

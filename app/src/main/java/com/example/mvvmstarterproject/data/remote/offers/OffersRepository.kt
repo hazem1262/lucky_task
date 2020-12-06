@@ -19,4 +19,16 @@ class OffersRepository @Inject constructor(connectivityUtils: ConnectivityUtils,
             }
         }
     }
+
+    suspend fun getOfferDetails(offerDetailsEndPoint:String): Result<OfferDetailsResponse> {
+        return safeApiCall {
+            offersService.getOfferDetails(offerDetailsEndPoint)
+        }.let { result ->
+            when (result) {
+                is Result.Success -> Result.Success(result.data)
+                is Result.Error -> result
+                else -> Result.Error(ApplicationException(type = ErrorType.Unexpected))
+            }
+        }
+    }
 }

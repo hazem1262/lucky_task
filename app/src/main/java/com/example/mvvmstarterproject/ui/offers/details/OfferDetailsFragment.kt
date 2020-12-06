@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseFragment
 import com.example.mvvmstarterproject.databinding.OfferDetailsFragmentBinding
+import kotlinx.android.synthetic.main.offer_details_fragment.*
 
 class OfferDetailsFragment : BaseFragment<OfferDetailsViewModel>() {
 
@@ -28,6 +30,13 @@ class OfferDetailsFragment : BaseFragment<OfferDetailsViewModel>() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel.getOfferDetails(args.offer.detailUrl?:"")
+        handleBackButton()
+    }
+
+    private fun handleBackButton() {
+        backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
 }

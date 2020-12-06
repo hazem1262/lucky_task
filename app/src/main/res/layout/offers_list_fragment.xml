@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{vm.offersPageTitle}"
-            android:minHeight="40dp"
+            android:minHeight="@dimen/app_bar_height"
             android:gravity="center"
             tools:text="Offers"
             android:textSize="@dimen/header_text_size"

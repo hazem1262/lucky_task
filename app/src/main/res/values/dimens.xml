@@ -5,4 +5,5 @@
     <dimen name="space_12">12dp</dimen>
     <dimen name="header_text_size">16sp</dimen>
     <dimen name="screen_side_padding">24dp</dimen>
+    <dimen name="app_bar_height">40dp</dimen>
 </resources>

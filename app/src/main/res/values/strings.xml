@@ -5,4 +5,5 @@
     <string name="success">Success</string>
     <string name="price">Price</string>
     <string name="redemption_cap">REDEMPTIONS CAP: %s</string>
+    <string name="back_button">back button</string>
 </resources>

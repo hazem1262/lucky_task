@@ -13,6 +13,8 @@ MVVV design pattern as recomended in docs [guide to app archticture](https://dev
 * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
 * [navigation](https://developer.android.com/guide/navigation/) to handle navigation between screens
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) to bind data to ui
+* [Mockk](https://mockk.io/) for testing
+* [github actions] for ci/cd
 * [Retrofit] for networking
 * [timper for] logging
 * [customLogger] for logging formatting

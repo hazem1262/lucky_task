@@ -1,10 +1,10 @@
-name: Test Slack notification
-
 on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
   push:
-    tags:
-      - "v*"
-
+    branches:
+      - master
+name: Test, Build and Release apk
 jobs:
   apk:
     name: generate releases with APK
@@ -43,9 +43,10 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Notifiy Slack channel
-        uses: muinmomin/webhook-action@v1.0.0
-        with:
-          url: ${{ secrets.WEBHOOK_URL }}
-          data: '{ "text": " Release ${{ steps.get_version.outputs.VERSION }} is ready : <https://github.com/Ibtikartechnologies/muhla-android/releases|Download>  Auther : ${{ github.actor }}" ,  "username": "Android Muhla Release Bot",    "icon_emoji": ":rocket:" }'
+# can also send slack notification with the apk url
+#      - name: Notifiy Slack channel
+#        uses: muinmomin/webhook-action@v1.0.0
+#        with:
+#          url: ${{ secrets.WEBHOOK_URL }}
+#          data: '{ "text": " Release ${{ steps.get_version.outputs.VERSION }} is ready : <https://github.com/Ibtikartechnologies/muhla-android/releases|Download>  Auther : ${{ github.actor }}" ,  "username": "Android  Release Bot",    "icon_emoji": ":rocket:" }'
 

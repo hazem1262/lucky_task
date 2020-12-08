@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -12,228 +13,236 @@
             type="com.lucky.task.data.remote.offers.OffersResponse.Section.Offer" />
     </data>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/appBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:paddingBottom="50dp"
-            tools:context=".ui.offers.details.OfferDetailsFragment">
+            android:background="@color/greyScale_200"
+            android:gravity="center|start"
+            android:minHeight="@dimen/app_bar_height"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/appBar"
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/back_button"
+                android:src="@drawable/ic_back" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/sharekButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="28dp"
+                android:contentDescription="@string/back_button"
+                android:src="@drawable/ic_share" />
+
+            <ImageView
+                android:id="@+id/loveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="28dp"
+                android:contentDescription="@string/back_button"
+                android:src="@drawable/ic_heart" />
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/greyScale_200"
-                android:gravity="center|start"
-                android:minHeight="@dimen/app_bar_height"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:background="@color/white"
+                android:paddingBottom="50dp"
+                tools:context=".ui.offers.details.OfferDetailsFragment">
 
-                <ImageButton
-                    android:id="@+id/backButton"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="28dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/back_button"
-                    android:src="@drawable/ic_back" />
 
-                <View
+
+                <ImageView
+                    android:id="@+id/offerDetailsImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{offer.imageUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/alerter_ic_face" />
+
+                <TextView
+                    android:id="@+id/offerBrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@{offer.brand}"
+                    style="@style/SFBTextAppearance.SemiBold"
+                    android:textColor="@color/greyScale_600"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="@id/startGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/offerDetailsImage"
+                    tools:text="Burger Joint" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_heart_solid"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/offerFavoriteCount"
+                    app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
+                    app:layout_constraintTop_toTopOf="@+id/offerFavoriteCount" />
+                <TextView
+                    android:id="@+id/offerFavoriteCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{offer.getFavouriteCountStyled()}"
+                    style="@style/SFBTextAppearance.SemiBold"
+                    android:textColor="@color/greyScale_600"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/offerBrand"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/offerBrand"
+                    tools:text="1.5k" />
+
+                <TextView
+                    android:id="@+id/offerTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_marginStart="@dimen/space_16"
+                    android:layout_marginTop="8dp"
+                    android:text="@{offer.title}"
+                    style="@style/SFBTextAppearance.SemiBold"
+                    android:textColor="@color/greyScale_800"
+                    android:textSize="32sp"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/offerBrand"
+                    tools:text="Double max burger or double chicken ranch sandwich for EGP 25" />
 
-                <ImageView
-                    android:id="@+id/sharekButton"
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/descriptionLoading"
+                    style="@style/SpinKitView.Large.Circle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:SpinKit_Color="@color/colorAccent"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/offerTitle"/>
+
+                <TextView
+                    android:id="@+id/offerDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:layout_marginTop="24dp"
+                    style="@style/SFBTextAppearance.Light"
+                    android:textSize="16sp"
+                    android:text="@{vm.offerDetailsLiveData.description}"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/offerTitle"
+                    tools:text="Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25" />
+
+                <TextView
+                    android:id="@+id/offerPriceHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="28dp"
-                    android:contentDescription="@string/back_button"
-                    android:src="@drawable/ic_share" />
+                    android:text="@string/price"
+                    android:layout_marginTop="48dp"
+                    style="@style/SFBTextAppearance.Normal"
+                    android:textColor="@color/greyScale_800"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/offerDescription" />
 
-                <ImageView
-                    android:id="@+id/loveButton"
+                <TextView
+                    android:id="@+id/oldPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="28dp"
-                    android:contentDescription="@string/back_button"
-                    android:src="@drawable/ic_heart" />
-            </LinearLayout>
+                    android:text="@{vm.offerDetailsLiveData.Price.old}"
+                    android:textColor="@color/greyScale_500"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    style="@style/SFBTextAppearance.Normal"
+                    app:layout_constraintStart_toStartOf="@+id/startGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/offerPriceHeader"
+                    app:strikeThrough="@{true}"
+                    tools:text="EGP500" />
 
-            <ImageView
-                android:id="@+id/offerDetailsImage"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                app:imageUrl="@{offer.imageUrl}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appBar"
-                tools:src="@drawable/alerter_ic_face" />
+                <TextView
+                    android:id="@+id/newPrice"
+                    style="@style/SFBTextAppearance.SemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:text="@{vm.offerDetailsLiveData.Price.new}"
+                    android:textColor="@color/greyScale_800"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/oldPrice"
+                    app:layout_constraintStart_toEndOf="@+id/oldPrice"
+                    app:layout_constraintTop_toTopOf="@+id/oldPrice"
+                    tools:text="EGP400" />
 
-            <TextView
-                android:id="@+id/offerBrand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@{offer.brand}"
-                style="@style/SFBTextAppearance.SemiBold"
-                android:textColor="@color/greyScale_600"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="@id/startGuideline"
-                app:layout_constraintTop_toBottomOf="@+id/offerDetailsImage"
-                tools:text="Burger Joint" />
+                <TextView
+                    android:id="@+id/offerExpirationDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.offerDetailsLiveData.expiration}"
+                    style="@style/SFBTextAppearance.Normal"
+                    android:textSize="12sp"
+                    android:textColor="@color/greyScale_600"
+                    app:layout_constraintBottom_toBottomOf="@+id/newPrice"
+                    app:layout_constraintEnd_toEndOf="@+id/endGuideline"
+                    tools:text="Exp.28 April 2020" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_heart_solid"
-                android:layout_marginEnd="6dp"
-                app:layout_constraintBottom_toBottomOf="@+id/offerFavoriteCount"
-                app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
-                app:layout_constraintTop_toTopOf="@+id/offerFavoriteCount" />
-            <TextView
-                android:id="@+id/offerFavoriteCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{offer.getFavouriteCountStyled()}"
-                style="@style/SFBTextAppearance.SemiBold"
-                android:textColor="@color/greyScale_600"
-                android:textSize="14sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/offerBrand"
-                app:layout_constraintEnd_toEndOf="@+id/endGuideline"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/offerBrand"
-                tools:text="1.5k" />
+                <TextView
+                    android:id="@+id/redemptionCap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:text="@{String.format(@string/redemption_cap, vm.offerDetailsLiveData.redemptionsCap)}"
+                    app:goneUnless="@{vm.offerDetailsLiveData.redemptionsCap!=null}"
+                    android:textColor="@color/greyScale_800"
+                    style="@style/SFBTextAppearance.SemiBold"
+                    app:layout_constraintStart_toStartOf="@id/startGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/oldPrice"
+                    tools:text="REDEMPTIONS CAP: 4 TIMES" />
 
-            <TextView
-                android:id="@+id/offerTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_16"
-                android:layout_marginTop="8dp"
-                android:text="@{offer.title}"
-                style="@style/SFBTextAppearance.SemiBold"
-                android:textColor="@color/greyScale_800"
-                android:textSize="32sp"
-                app:layout_constraintEnd_toEndOf="@+id/endGuideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/offerBrand"
-                tools:text="Double max burger or double chicken ranch sandwich for EGP 25" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/startGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/screen_side_padding" />
 
-            <com.github.ybq.android.spinkit.SpinKitView
-                android:id="@+id/descriptionLoading"
-                style="@style/SpinKitView.Large.Circle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:SpinKit_Color="@color/colorAccent"
-                app:layout_constraintEnd_toEndOf="@id/endGuideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/offerTitle"/>
-
-            <TextView
-                android:id="@+id/offerDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_16"
-                android:layout_marginTop="24dp"
-                style="@style/SFBTextAppearance.Light"
-                android:textSize="16sp"
-                android:text="@{vm.offerDetailsLiveData.description}"
-                app:layout_constraintEnd_toEndOf="@id/endGuideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/offerTitle"
-                tools:text="Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25" />
-
-            <TextView
-                android:id="@+id/offerPriceHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/price"
-                android:layout_marginTop="48dp"
-                style="@style/SFBTextAppearance.Normal"
-                android:textColor="@color/greyScale_800"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/startGuideline"
-                app:layout_constraintTop_toBottomOf="@+id/offerDescription" />
-
-            <TextView
-                android:id="@+id/oldPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{vm.offerDetailsLiveData.Price.old}"
-                android:textColor="@color/greyScale_500"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                style="@style/SFBTextAppearance.Normal"
-                app:layout_constraintStart_toStartOf="@+id/startGuideline"
-                app:layout_constraintTop_toBottomOf="@+id/offerPriceHeader"
-                app:strikeThrough="@{true}"
-                tools:text="EGP500" />
-
-            <TextView
-                android:id="@+id/newPrice"
-                style="@style/SFBTextAppearance.SemiBold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:text="@{vm.offerDetailsLiveData.Price.new}"
-                android:textColor="@color/greyScale_800"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/oldPrice"
-                app:layout_constraintStart_toEndOf="@+id/oldPrice"
-                app:layout_constraintTop_toTopOf="@+id/oldPrice"
-                tools:text="EGP400" />
-
-            <TextView
-                android:id="@+id/offerExpirationDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{vm.offerDetailsLiveData.expiration}"
-                style="@style/SFBTextAppearance.Normal"
-                android:textSize="12sp"
-                android:textColor="@color/greyScale_600"
-                app:layout_constraintBottom_toBottomOf="@+id/newPrice"
-                app:layout_constraintEnd_toEndOf="@+id/endGuideline"
-                tools:text="Exp.28 April 2020" />
-
-            <TextView
-                android:id="@+id/redemptionCap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:text="@{String.format(@string/redemption_cap, vm.offerDetailsLiveData.redemptionsCap)}"
-                app:goneUnless="@{vm.offerDetailsLiveData.redemptionsCap!=null}"
-                android:textColor="@color/greyScale_800"
-                style="@style/SFBTextAppearance.SemiBold"
-                app:layout_constraintStart_toStartOf="@id/startGuideline"
-                app:layout_constraintTop_toBottomOf="@+id/oldPrice"
-                tools:text="REDEMPTIONS CAP: 4 TIMES" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/startGuideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="@dimen/screen_side_padding" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/endGuideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_end="@dimen/screen_side_padding" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/endGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/screen_side_padding" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </LinearLayout>
 </layout>

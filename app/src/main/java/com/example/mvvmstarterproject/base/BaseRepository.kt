@@ -3,17 +3,17 @@ package com.example.mvvmstarterproject.base
 import com.ahmoneam.basecleanarchitecture.base.data.model.BaseResponse
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.utils.ConnectivityUtils
+import com.example.mvvmstarterproject.utils.coroutines.ContextProviders
 import com.example.mvvmstarterproject.utils.network.ApplicationException
 import com.example.mvvmstarterproject.utils.network.ErrorType
 import com.example.mvvmstarterproject.utils.network.Result
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 import timber.log.Timber
 
-open class BaseRepository(private val connectivityUtils: ConnectivityUtils) {
+open class BaseRepository(val contextProvider: ContextProviders, private val connectivityUtils: ConnectivityUtils) {
 
     private val gSon = Gson()
     private val noInternetError = Result.Error(
@@ -25,7 +25,7 @@ open class BaseRepository(private val connectivityUtils: ConnectivityUtils) {
 
     val unexpectedError = Result.Error(ApplicationException(type = ErrorType.Network.Unexpected))
     suspend fun <T : Any> safeApiCall(call: suspend () -> Response<T>): Result<T> {
-        return withContext(Dispatchers.IO) {
+        return withContext(contextProvider.IO) {
             return@withContext try {
                 // check internet connection
                 if (connectivityUtils.isNetworkConnected.not()) return@withContext noInternetError

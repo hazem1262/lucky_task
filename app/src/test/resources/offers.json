@@ -1,102 +1,78 @@
-[
-  {
-    "userId": 1,
-    "id": 1,
-    "title": "quidem molestiae enim"
-  },
-  {
-    "userId": 1,
-    "id": 2,
-    "title": "sunt qui excepturi placeat culpa"
-  },
-  {
-    "userId": 1,
-    "id": 3,
-    "title": "omnis laborum odio"
-  },
-  {
-    "userId": 1,
-    "id": 4,
-    "title": "non esse culpa molestiae omnis sed optio"
-  },
-  {
-    "userId": 1,
-    "id": 5,
-    "title": "eaque aut omnis a"
-  },
-  {
-    "userId": 1,
-    "id": 6,
-    "title": "natus impedit quibusdam illo est"
-  },
-  {
-    "userId": 1,
-    "id": 7,
-    "title": "quibusdam autem aliquid et et quia"
-  },
-  {
-    "userId": 1,
-    "id": 8,
-    "title": "qui fuga est a eum"
-  },
-  {
-    "userId": 1,
-    "id": 9,
-    "title": "saepe unde necessitatibus rem"
-  },
-  {
-    "userId": 1,
-    "id": 10,
-    "title": "distinctio laborum qui"
-  },
-  {
-    "userId": 2,
-    "id": 11,
-    "title": "quam nostrum impedit mollitia quod et dolor"
-  },
-  {
-    "userId": 2,
-    "id": 12,
-    "title": "consequatur autem doloribus natus consectetur"
-  },
-  {
-    "userId": 2,
-    "id": 13,
-    "title": "ab rerum non rerum consequatur ut ea unde"
-  },
-  {
-    "userId": 2,
-    "id": 14,
-    "title": "ducimus molestias eos animi atque nihil"
-  },
-  {
-    "userId": 2,
-    "id": 15,
-    "title": "ut pariatur rerum ipsum natus repellendus praesentium"
-  },
-  {
-    "userId": 2,
-    "id": 16,
-    "title": "voluptatem aut maxime inventore autem magnam atque repellat"
-  },
-  {
-    "userId": 2,
-    "id": 17,
-    "title": "aut minima voluptatem ut velit"
-  },
-  {
-    "userId": 2,
-    "id": 18,
-    "title": "nesciunt quia et doloremque"
-  },
-  {
-    "userId": 2,
-    "id": 19,
-    "title": "velit pariatur quaerat similique libero omnis quia"
-  },
-  {
-    "userId": 2,
-    "id": 20,
-    "title": "voluptas rerum iure ut enim"
-  }
-]
+{
+  "title": "Offers",
+  "sections": [
+    {
+      "title": "Top Cashbacks",
+      "items": [
+        {
+          "detailUrl": "https://www.nasable.com/luckytest/api/offers/1",
+          "imageUrl": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1125&h=750&q=80",
+          "brand": "Burger Joint",
+          "title": "3,5% Cashbacks Paying with Lucky",
+          "tags": "Cashback",
+          "favoriteCount": 283
+        },
+        {
+          "detailUrl": "https://www.nasable.com/luckytest/api/offers/2",
+          "imageUrl": "https://images.unsplash.com/photo-1561651823-34feb02250e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1125&h=750&q=80",
+          "brand": "Shawerma El Reem",
+          "title": "4 Sandwiches for 60 EGP Only!",
+          "tags": "Discount",
+          "favoriteCount": 1459
+        },
+        {
+          "detailUrl": "https://www.nasable.com/luckytest/api/offers/3",
+          "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=1125&h=750&q=80",
+          "brand": "Pizza King",
+          "title": "Special Combo for 110 EGP only instead of 211 EGP!",
+          "tags": "Discount",
+          "favoriteCount": 45
+        },
+        {
+          "detailUrl": "https://www.nasable.com/luckytest/api/offers/4",
+          "imageUrl": "https://images.unsplash.com/photo-1510157059722-9c3c2175ed1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1125&h=750&q=80",
+          "brand": "Bose",
+          "title": "5% Cashbacks Paying with Lucky",
+          "tags": "Cashback",
+          "favoriteCount": 782
+        }
+      ]
+    },
+    {
+      "title": "Popular",
+      "items": [
+        {
+          "detailUrl": "https://www.nasable.com/luckytest/api/offers/5",
+          "imageUrl": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1125&h=750&q=80",
+          "brand": "Max Burgers",
+          "title": "Double max burger or double chicken ranch sandwich for EGP 25",
+          "tags": "Discount",
+          "favoriteCount": 101
+        },
+        {
+          "detailUrl": "https://www.nasable.com/luckytest/api/offers/6",
+          "imageUrl": "https://images.unsplash.com/photo-1562967914-01efa7e87832?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1125&h=750&q=80",
+          "brand": "Chicken Tikka",
+          "title": "Half grilled chicken meal for 57 EGP instead of 92 EGP!!",
+          "tags": "Discount",
+          "favoriteCount": 1459
+        },
+        {
+          "detailUrl": "https://www.nasable.com/luckytest/api/offers/7",
+          "imageUrl": "https://images.unsplash.com/photo-1561651823-34feb02250e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1125&h=750&q=80",
+          "brand": "Shawerma El Reem",
+          "title": "Sandwich shawerma beef + 1 shawerma chicken Large for EGP 35 instead of EGP 66!",
+          "favoriteCount": 94
+        },
+        {
+          "detailUrl": "https://www.nasable.com/luckytest/api/offers/8",
+          "imageUrl": "https://images.unsplash.com/photo-1523329110005-297cf111f8de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1125&h=750&q=80",
+          "brand": "Sony",
+          "title": "10% Cashbacks Paying with Lucky today",
+          "tags": "Cashback",
+          "favoriteCount": 623
+        }
+      ]
+    }
+  ]
+}

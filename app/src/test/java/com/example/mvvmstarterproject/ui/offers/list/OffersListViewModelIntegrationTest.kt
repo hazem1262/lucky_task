@@ -2,15 +2,12 @@ package com.example.mvvmstarterproject.ui.offers.list
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.data.remote.offers.OffersRepository
 import com.example.mvvmstarterproject.data.remote.offers.OffersResponse
 import com.example.mvvmstarterproject.data.remote.offers.OffersService
 import com.example.mvvmstarterproject.utils.ConnectivityUtils
 import com.example.mvvmstarterproject.utils.Event
 import com.example.mvvmstarterproject.utils.TestContextProvider
-import com.example.mvvmstarterproject.utils.network.ApplicationException
-import com.example.mvvmstarterproject.utils.network.ErrorType
 import com.example.mvvmstarterproject.utils.network.Result
 import com.google.gson.Gson
 import io.mockk.MockKAnnotations
@@ -38,7 +35,7 @@ class OffersListViewModelIntegrationTest {
     @MockK
     lateinit var connectivityUtils: ConnectivityUtils
     @MockK
-    lateinit var offersListObserver: Observer<List<OffersResponse.Section.Offer>>
+    lateinit var pageTitleObserver: Observer<String>
     @MockK
     lateinit var loadingObserver: Observer<Event<Result.Loading>>
     @MockK
@@ -54,11 +51,6 @@ class OffersListViewModelIntegrationTest {
     }
     private val dummyOffersJson = ClassLoader.getSystemResource("offers.json").readText()
 
-    private val noInternetError = ApplicationException(
-        type = ErrorType.Network.NoInternetConnection,
-        errorMessageRes = R.string.error_no_internet_connection
-    )
-
     private val offersService by lazy {
         retrofit.create(OffersService::class.java)
     }
@@ -73,39 +65,30 @@ class OffersListViewModelIntegrationTest {
         )
         repository = OffersRepository(contextProvidersTest, offersService = offersService, connectivityUtils = connectivityUtils)
         viewModel = OffersListViewModel(contextProvidersTest, repository)
-        viewModel.offersLiveData.observeForever(offersListObserver)
         viewModel.loading.observeForever(loadingObserver)
         viewModel.error.observeForever(errorObserver)
+        viewModel.offersPageTitle.observeForever(pageTitleObserver)
     }
 
     @Test
-    fun `get offers change view state to ERROR if there is no internet connection`() {
+    fun `when get offers called and there is no internet connection loading appears then error displayed and error disappear`() {
         every { connectivityUtils.isNetworkConnected } returns false
         viewModel.getOffersList()
         coVerifyOrder {
             loadingObserver.onChanged(any())
             errorObserver.onChanged(any())
+            loadingObserver.onChanged(any())
         }
     }
 
     @Test
-    fun `get offers post list of offers`() {
+    fun `get offers displays the page title returned from the api`() {
         every { connectivityUtils.isNetworkConnected } returns true
         viewModel.getOffersList()
         val offersResponse = Gson().fromJson(dummyOffersJson, OffersResponse::class.java)
-        val offers = arrayListOf<OffersResponse.Section.Offer>()
-        offersResponse.sections.forEach {
-                section -> offers.addAll(
-            section.offers.apply {
-                forEachIndexed { index, offer ->
-                    offer.sectionTitle = section.title?:""
-                    offer.isSectionVisible = index == 0
-                }
-            }
-        )
-        }
+
         coVerify {
-            offersListObserver.onChanged(any())
+            pageTitleObserver.onChanged(offersResponse.title)
         }
     }
 

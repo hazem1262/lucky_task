@@ -51,6 +51,7 @@ open class BaseRepository(val contextProvider: ContextProviders, private val con
             )
         )
     }
+
     private fun <T : Any> handleResult(response: Response<T>): Result<T> {
         return when (response.code()) {
             in 1..399 -> Result.Success(response.body()!!)
@@ -74,6 +75,7 @@ open class BaseRepository(val contextProvider: ContextProviders, private val con
             )
         }
     }
+
     private fun <T> getErrorMessage(response: Response<T>): String? {
         return gSon.fromJson<BaseResponse<*>>(
             response.errorBody()?.string(),

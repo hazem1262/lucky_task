@@ -9,6 +9,7 @@ import com.lucky.task.utils.network.Result
 import javax.inject.Inject
 
 class OffersRepository @Inject constructor(contextProvider: ContextProviders, connectivityUtils: ConnectivityUtils, private val offersService: OffersService): BaseRepository(contextProvider, connectivityUtils) {
+
     suspend fun getListOfOffers(): Result<OffersResponse> {
         return safeApiCall {
             offersService.getListOfOffers()

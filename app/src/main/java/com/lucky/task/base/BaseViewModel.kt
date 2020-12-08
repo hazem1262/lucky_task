@@ -34,6 +34,7 @@ open class BaseViewModel(val contextProvider: ContextProviders): ViewModel() {
             }
         }
     }
+
     fun <T> handleResult(result: Result<T>, onSuccess: (Result.Success<T>) -> Unit) {
         when (result) {
             is Result.Success<T> -> {
@@ -42,6 +43,7 @@ open class BaseViewModel(val contextProvider: ContextProviders): ViewModel() {
             is Result.Error -> {
                 throw result.exception
             }
+            else -> throw UnknownError()
         }
     }
 

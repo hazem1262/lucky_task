@@ -8,7 +8,7 @@ import com.tapadoo.alerter.Alert
 import com.tapadoo.alerter.Alerter
 
 object MessageUtils {
-    fun showMessage(
+    private fun showMessage(
         activity: Activity,
         title: String,
         message: String,

@@ -19,12 +19,11 @@ open class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() , HasAn
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
-
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var loadingHandler: LoadingHandler
-
     lateinit var viewModel:ViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
@@ -33,18 +32,21 @@ open class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() , HasAn
         initLoading()
         initError()
     }
+
     @Suppress("UNCHECKED_CAST")
     private fun viewModelClass(): Class<ViewModel> {
         // dirty hack to get generic type https://stackoverflow.com/a/1901275/719212
         return ((javaClass.genericSuperclass as ParameterizedType)
             .actualTypeArguments[0] as Class<ViewModel>)
     }
+
     private fun initError() {
         viewModel.error.observe(this, EventObserver {
             hideLoading()
             showError(it)
         })
     }
+
     open fun showError(error: Result.Error) {
         val errorMessage = error.exception.errorMessage
             ?: run {
@@ -63,6 +65,7 @@ open class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() , HasAn
             else hideLoading()
         })
     }
+
     open fun hideLoading() {
         loadingHandler.hideLoading()
     }
@@ -70,5 +73,6 @@ open class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() , HasAn
     open fun showLoading() {
         loadingHandler.showLoading()
     }
+
     override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
 }

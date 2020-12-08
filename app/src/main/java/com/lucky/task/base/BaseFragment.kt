@@ -17,9 +17,9 @@ import java.lang.reflect.ParameterizedType
 import javax.inject.Inject
 
 open class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
+
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-
     lateinit var viewModel:ViewModel
     private lateinit var loadingHandler: LoadingHandler
 
@@ -34,21 +34,25 @@ open class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
         initLoading()
         initError()
     }
+
     open fun getLifeCycleOwner(): ViewModelStoreOwner {
         return this
     }
+
     @Suppress("UNCHECKED_CAST")
     private fun viewModelClass(): Class<ViewModel> {
         // dirty hack to get generic type https://stackoverflow.com/a/1901275/719212
         return ((javaClass.genericSuperclass as ParameterizedType)
             .actualTypeArguments[0] as Class<ViewModel>)
     }
+
     private fun initError() {
         viewModel.error.observe(viewLifecycleOwner, EventObserver {
             hideLoading()
             showError(it)
         })
     }
+
     open fun showError(error: Result.Error) {
         val errorMessage = error.exception.errorMessage
             ?: run {
@@ -67,6 +71,7 @@ open class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
             else hideLoading()
         })
     }
+
     open fun hideLoading() {
         loadingHandler.hideLoading()
     }
@@ -75,7 +80,8 @@ open class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
         hideKeyboard()
         loadingHandler.showLoading()
     }
-    fun hideKeyboard() {
+
+    private fun hideKeyboard() {
         val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }

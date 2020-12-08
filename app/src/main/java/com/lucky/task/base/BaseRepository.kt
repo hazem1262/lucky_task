@@ -1,6 +1,5 @@
 package com.lucky.task.base
 
-import com.ahmoneam.basecleanarchitecture.base.data.model.BaseResponse
 import com.lucky.task.R
 import com.lucky.task.utils.ConnectivityUtils
 import com.lucky.task.utils.coroutines.ContextProviders
@@ -9,6 +8,7 @@ import com.lucky.task.utils.network.ErrorType
 import com.lucky.task.utils.network.Result
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.lucky.task.utils.network.BaseResponse
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 import timber.log.Timber

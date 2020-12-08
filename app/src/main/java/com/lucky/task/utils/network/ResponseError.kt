@@ -1,4 +1,4 @@
-package com.monh.packager.utils.network
+package com.lucky.task.utils.network
 
 import com.google.gson.annotations.SerializedName
 

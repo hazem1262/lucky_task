@@ -131,6 +131,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/offerBrand"
                 tools:text="Double max burger or double chicken ranch sandwich for EGP 25" />
 
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/descriptionLoading"
+                style="@style/SpinKitView.Large.Circle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/offerTitle"/>
+
             <TextView
                 android:id="@+id/offerDescription"
                 android:layout_width="0dp"
@@ -143,7 +154,7 @@
                 app:layout_constraintEnd_toEndOf="@id/endGuideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/offerTitle"
-                tools:text="" />
+                tools:text="Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25 Double max burger or double chicken ranch sandwich for EGP 25" />
 
             <TextView
                 android:id="@+id/offerPriceHeader"

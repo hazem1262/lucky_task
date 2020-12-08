@@ -137,4 +137,7 @@ dependencies {
     testImplementation "io.mockk:mockk:$mockkVersion"
     testImplementation "android.arch.core:core-testing:2.1.0"
     testImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServer"
+
+    //loading
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 }

@@ -10,6 +10,8 @@ import androidx.navigation.fragment.navArgs
 import com.example.mvvmstarterproject.R
 import com.example.mvvmstarterproject.base.BaseFragment
 import com.example.mvvmstarterproject.databinding.OfferDetailsFragmentBinding
+import com.github.ybq.android.spinkit.sprite.Sprite
+import com.github.ybq.android.spinkit.style.ThreeBounce
 import kotlinx.android.synthetic.main.offer_details_fragment.*
 
 class OfferDetailsFragment : BaseFragment<OfferDetailsViewModel>() {
@@ -39,4 +41,13 @@ class OfferDetailsFragment : BaseFragment<OfferDetailsViewModel>() {
         }
     }
 
+    override fun showLoading() {
+        val doubleBounce: Sprite = ThreeBounce()
+        descriptionLoading.setIndeterminateDrawable(doubleBounce)
+        descriptionLoading.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        descriptionLoading.visibility = View.GONE
+    }
 }

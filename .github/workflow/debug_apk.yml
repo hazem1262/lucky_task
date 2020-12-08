@@ -1,0 +1,51 @@
+name: Test Slack notification
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  apk:
+    name: generate releases with APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Generate Debug APK
+        run: ./gradlew clean assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Get the version from the tag that we have set.
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+      - name: Create Release and Upload debug APK
+        uses: underwindfall/create-release-with-debugapk@v2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          release_name: Release ${{ steps.get_version.outputs.VERSION }}
+          asset_path: app/build/outputs/apk/debug/app-debug.apk
+          asset_name: debug_sample ${{ steps.get_version.outputs.VERSION }}.apk
+          asset_content_type: application/zip
+          draft: false
+          prerelease: false
+
+      - name: Notifiy Slack channel
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ secrets.WEBHOOK_URL }}
+          data: '{ "text": " Release ${{ steps.get_version.outputs.VERSION }} is ready : <https://github.com/Ibtikartechnologies/muhla-android/releases|Download>  Auther : ${{ github.actor }}" ,  "username": "Android Muhla Release Bot",    "icon_emoji": ":rocket:" }'
+

@@ -1,6 +1,6 @@
-# mvvvm-starter-project
+# lucky_task
 
-MVVM starter project which can be used to save effort in the begging of any project
+load some offers as a json response from api, display data in recycler view and show offer details.
 
 ## Design Pattern
 MVVV design pattern as recomended in docs [guide to app archticture](https://developer.android.com/jetpack/docs/guide) , with some modification to the network layer adding Kotlin couritines, also using dagger for dependency injection 
@@ -16,3 +16,13 @@ MVVV design pattern as recomended in docs [guide to app archticture](https://dev
 * [Retrofit] for networking
 * [timper for] logging
 * [customLogger] for logging formatting
+
+## Demo
+
+<p align="center">
+<img src="https://github.com/hazem1262/lucky_task/blob/develop/demo.gif" width="300" height="600" />
+</p>
+
+## Note
+
+this repository is based on my public Repo [MVVM starter project](https://github.com/hazem1262/mvvvm-starter-project)

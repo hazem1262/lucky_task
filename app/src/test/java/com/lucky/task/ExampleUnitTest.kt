@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject
+package com.lucky.task
 
 import org.junit.Test
 

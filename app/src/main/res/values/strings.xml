@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">mvvm starter project</string>
+    <string name="app_name">Lucky task</string>
+    <string name="error_no_internet_connection">No Internet Connection</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="price">Price</string>
+    <string name="redemption_cap">REDEMPTIONS CAP: %s</string>
+    <string name="back_button">back button</string>
+    <string name="offerTransitionName">Offer transtion name</string>
+    <string name="error_unexpected">Un expected error</string>
 </resources>

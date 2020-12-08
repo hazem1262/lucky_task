@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='mvvm starter project'
+rootProject.name='lucky task'

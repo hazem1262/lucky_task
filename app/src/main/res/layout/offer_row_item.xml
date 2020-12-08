@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="offer"
+            type="com.lucky.task.data.remote.offers.OffersResponse.Section.Offer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/sectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{offer.sectionTitle}"
+            tools:text="Top Cashbacks"
+            app:goneUnless="@{offer.isSectionVisible}"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/greyScale_800"
+            style="@style/SFBTextAppearance.SemiBold"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/offerImage"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="2dp"
+            android:elevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sectionHeader">
+            <ImageView
+                android:id="@+id/offerImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:imageUrl="@{offer.imageUrl}"
+                tools:src="@drawable/alerter_ic_face" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/offerBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_16"
+            android:text="@{offer.brand}"
+            style="@style/SFBTextAppearance.Normal"
+            android:textSize="12sp"
+            android:textColor="@color/greyScale_600"
+            app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/offerImage"
+            app:layout_constraintTop_toTopOf="@+id/offerImage"
+            tools:text="Burger Joint" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_heart_solid"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/offerFavoriteCount"
+            app:layout_constraintEnd_toStartOf="@+id/offerFavoriteCount"
+            app:layout_constraintTop_toTopOf="@+id/offerFavoriteCount" />
+        <TextView
+            android:id="@+id/offerFavoriteCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{offer.getFavouriteCountStyled()}"
+            style="@style/SFBTextAppearance.Normal"
+            android:textColor="@color/greyScale_600"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/offerBrand"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/offerBrand"
+            tools:text="1.5k" />
+
+        <TextView
+            android:id="@+id/offerTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginTop="2dp"
+            android:text="@{offer.title}"
+            style="@style/SFBTextAppearance.Bold"
+            android:textSize="16sp"
+            tools:text="Double max burger or double chicken ranch sandwich for EGP 25, "
+            app:layout_constraintStart_toEndOf="@+id/offerImage"
+            app:layout_constraintTop_toBottomOf="@+id/offerBrand"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/offerTag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginTop="2dp"
+            android:text="@{offer.tags}"
+            tools:text="Discount"
+            style="@style/SFBTextAppearance.Normal"
+            android:textColor="@color/greyScale_600"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/offerImage"
+            app:layout_constraintTop_toBottomOf="@+id/offerTitle"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

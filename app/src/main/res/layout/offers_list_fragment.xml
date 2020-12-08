@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.example.mvvmstarterproject.ui.offers.list.OffersListViewModel" />
+            type="com.lucky.task.ui.offers.list.OffersListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

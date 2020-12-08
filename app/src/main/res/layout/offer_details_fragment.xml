@@ -6,10 +6,10 @@
     <data>
         <variable
             name="vm"
-            type="com.example.mvvmstarterproject.ui.offers.details.OfferDetailsViewModel" />
+            type="com.lucky.task.ui.offers.details.OfferDetailsViewModel" />
         <variable
             name="offer"
-            type="com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer" />
+            type="com.lucky.task.data.remote.offers.OffersResponse.Section.Offer" />
     </data>
 
     <ScrollView

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.mvvmstarterproject.di.viewmodels
+package com.lucky.task.di.viewmodels
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

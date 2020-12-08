@@ -1,8 +1,8 @@
-package com.example.mvvmstarterproject.ui
+package com.lucky.task.ui
 
 import android.os.Bundle
-import com.example.mvvmstarterproject.R
-import com.example.mvvmstarterproject.base.BaseActivity
+import com.lucky.task.R
+import com.lucky.task.base.BaseActivity
 
 class MainActivity : BaseActivity<MainViewModel>() {
 

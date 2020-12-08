@@ -1,18 +1,16 @@
-package com.example.mvvmstarterproject.ui.offers.list
+package com.lucky.task.ui.offers.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.view.ViewCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mvvmstarterproject.R
-import com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer
-import com.example.mvvmstarterproject.databinding.OfferRowItemBinding
+import com.lucky.task.R
+import com.lucky.task.data.remote.offers.OffersResponse.Section.Offer
+import com.lucky.task.databinding.OfferRowItemBinding
 
 class OffersAdapter(val selectOffer:(Offer)->Unit): ListAdapter<Offer, RecyclerView.ViewHolder>(diffCallBack)  {
     companion object {

@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject.utils.dataBinding
+package com.lucky.task.utils.dataBinding
 
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.widget.TextView

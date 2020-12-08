@@ -1,7 +1,7 @@
-package com.example.mvvmstarterproject.di.modules
+package com.lucky.task.di.modules
 
-import com.example.mvvmstarterproject.BuildConfig
-import com.example.mvvmstarterproject.data.remote.offers.OffersService
+import com.lucky.task.BuildConfig
+import com.lucky.task.data.remote.offers.OffersService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

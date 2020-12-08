@@ -1,11 +1,11 @@
-package com.example.mvvmstarterproject.data.remote.offers
+package com.lucky.task.data.remote.offers
 
-import com.example.mvvmstarterproject.base.BaseRepository
-import com.example.mvvmstarterproject.utils.ConnectivityUtils
-import com.example.mvvmstarterproject.utils.coroutines.ContextProviders
-import com.example.mvvmstarterproject.utils.network.ApplicationException
-import com.example.mvvmstarterproject.utils.network.ErrorType
-import com.example.mvvmstarterproject.utils.network.Result
+import com.lucky.task.base.BaseRepository
+import com.lucky.task.utils.ConnectivityUtils
+import com.lucky.task.utils.coroutines.ContextProviders
+import com.lucky.task.utils.network.ApplicationException
+import com.lucky.task.utils.network.ErrorType
+import com.lucky.task.utils.network.Result
 import javax.inject.Inject
 
 class OffersRepository @Inject constructor(contextProvider: ContextProviders, connectivityUtils: ConnectivityUtils, private val offersService: OffersService): BaseRepository(contextProvider, connectivityUtils) {

@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject.utils.coroutines
+package com.lucky.task.utils.coroutines
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

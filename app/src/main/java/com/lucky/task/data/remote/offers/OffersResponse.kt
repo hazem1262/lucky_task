@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject.data.remote.offers
+package com.lucky.task.data.remote.offers
 
 
 import android.os.Parcelable

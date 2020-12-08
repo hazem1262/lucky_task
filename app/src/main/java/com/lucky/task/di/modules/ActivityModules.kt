@@ -1,7 +1,7 @@
-package com.example.mvvmstarterproject.di.modules
+package com.lucky.task.di.modules
 
-import com.example.mvvmstarterproject.di.modules.fragment.modules.MainActivityFragmentsProviders
-import com.example.mvvmstarterproject.ui.MainActivity
+import com.lucky.task.di.modules.fragment.modules.MainActivityFragmentsProviders
+import com.lucky.task.ui.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

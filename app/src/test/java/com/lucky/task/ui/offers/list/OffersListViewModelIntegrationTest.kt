@@ -1,14 +1,14 @@
-package com.example.mvvmstarterproject.ui.offers.list
+package com.lucky.task.ui.offers.list
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.example.mvvmstarterproject.data.remote.offers.OffersRepository
-import com.example.mvvmstarterproject.data.remote.offers.OffersResponse
-import com.example.mvvmstarterproject.data.remote.offers.OffersService
-import com.example.mvvmstarterproject.utils.ConnectivityUtils
-import com.example.mvvmstarterproject.utils.Event
-import com.example.mvvmstarterproject.utils.TestContextProvider
-import com.example.mvvmstarterproject.utils.network.Result
+import com.lucky.task.data.remote.offers.OffersRepository
+import com.lucky.task.data.remote.offers.OffersResponse
+import com.lucky.task.data.remote.offers.OffersService
+import com.lucky.task.utils.ConnectivityUtils
+import com.lucky.task.utils.Event
+import com.lucky.task.utils.TestContextProvider
+import com.lucky.task.utils.network.Result
 import com.google.gson.Gson
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify

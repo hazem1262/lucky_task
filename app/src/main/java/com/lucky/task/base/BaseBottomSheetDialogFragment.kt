@@ -1,15 +1,15 @@
-package com.example.mvvmstarterproject.base
+package com.lucky.task.base
 
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.ViewModelProvider
-import com.example.mvvmstarterproject.di.viewmodels.ViewModelFactory
-import com.example.mvvmstarterproject.utils.EventObserver
-import com.example.mvvmstarterproject.utils.MessageUtils
-import com.example.mvvmstarterproject.utils.network.LoadingHandler
-import com.example.mvvmstarterproject.utils.network.Result
+import com.lucky.task.di.viewmodels.ViewModelFactory
+import com.lucky.task.utils.EventObserver
+import com.lucky.task.utils.MessageUtils
+import com.lucky.task.utils.network.LoadingHandler
+import com.lucky.task.utils.network.Result
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.android.support.AndroidSupportInjection
 import java.lang.reflect.ParameterizedType

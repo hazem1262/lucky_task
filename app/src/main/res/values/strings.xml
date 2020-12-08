@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">mvvm starter project</string>
+    <string name="app_name">Lucky task</string>
     <string name="error_no_internet_connection">No Internet Connection</string>
     <string name="error">Error</string>
     <string name="success">Success</string>

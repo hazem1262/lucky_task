@@ -1,6 +1,6 @@
-package com.example.mvvmstarterproject.utils
+package com.lucky.task.utils
 
-import com.example.mvvmstarterproject.utils.coroutines.ContextProviders
+import com.lucky.task.utils.coroutines.ContextProviders
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext
 

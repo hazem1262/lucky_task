@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject.ui.offers.list
+package com.lucky.task.ui.offers.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
-import com.example.mvvmstarterproject.R
-import com.example.mvvmstarterproject.base.BaseFragment
-import com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer
-import com.example.mvvmstarterproject.databinding.OffersListFragmentBinding
-import com.example.mvvmstarterproject.ui.offers.details.OfferDetailsFragmentArgs
+import com.lucky.task.R
+import com.lucky.task.base.BaseFragment
+import com.lucky.task.data.remote.offers.OffersResponse.Section.Offer
+import com.lucky.task.databinding.OffersListFragmentBinding
+import com.lucky.task.ui.offers.details.OfferDetailsFragmentArgs
 
 class OffersListFragment : BaseFragment<OffersListViewModel>() {
 

@@ -1,8 +1,8 @@
-package com.example.mvvmstarterproject.utils.network
+package com.lucky.task.utils.network
 
 import android.app.Activity
 import android.app.Dialog
-import com.example.mvvmstarterproject.R
+import com.lucky.task.R
 import java.lang.ref.WeakReference
 
 class LoadingHandler private constructor(private val activity: WeakReference<Activity>) {

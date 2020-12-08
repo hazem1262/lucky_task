@@ -1,13 +1,13 @@
-package com.example.mvvmstarterproject.base
+package com.lucky.task.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mvvmstarterproject.utils.Event
-import com.example.mvvmstarterproject.utils.coroutines.ContextProviders
-import com.example.mvvmstarterproject.utils.network.ApplicationException
-import com.example.mvvmstarterproject.utils.network.ErrorType
-import com.example.mvvmstarterproject.utils.network.Result
+import com.lucky.task.utils.Event
+import com.lucky.task.utils.coroutines.ContextProviders
+import com.lucky.task.utils.network.ApplicationException
+import com.lucky.task.utils.network.ErrorType
+import com.lucky.task.utils.network.Result
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

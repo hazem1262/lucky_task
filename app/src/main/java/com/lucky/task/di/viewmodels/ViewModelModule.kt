@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.mvvmstarterproject.di.viewmodels
+package com.lucky.task.di.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.mvvmstarterproject.ui.MainViewModel
-import com.example.mvvmstarterproject.ui.offers.details.OfferDetailsViewModel
-import com.example.mvvmstarterproject.ui.offers.list.OffersListViewModel
+import com.lucky.task.ui.MainViewModel
+import com.lucky.task.ui.offers.details.OfferDetailsViewModel
+import com.lucky.task.ui.offers.list.OffersListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

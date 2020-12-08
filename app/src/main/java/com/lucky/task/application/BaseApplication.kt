@@ -1,9 +1,9 @@
-package com.example.mvvmstarterproject.application
+package com.lucky.task.application
 
 import android.app.Application
-import com.example.mvvmstarterproject.BuildConfig
-import com.example.mvvmstarterproject.di.DaggerAppComponent
-import com.example.mvvmstarterproject.utils.ReleaseTree
+import com.lucky.task.BuildConfig
+import com.lucky.task.di.DaggerAppComponent
+import com.lucky.task.utils.ReleaseTree
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import dagger.android.AndroidInjector

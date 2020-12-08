@@ -1,6 +1,6 @@
-package com.example.mvvmstarterproject.utils
+package com.lucky.task.utils
 
-import com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer
+import com.lucky.task.data.remote.offers.OffersResponse.Section.Offer
 
 /*using mock() function results in exception,
 so used this work around for mocking offers*/

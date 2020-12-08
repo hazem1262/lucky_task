@@ -1,2 +1,2 @@
-package com.example.mvvmstarterproject.utils
+package com.lucky.task.utils
 

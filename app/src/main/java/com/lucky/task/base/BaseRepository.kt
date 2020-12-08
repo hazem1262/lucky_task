@@ -1,12 +1,12 @@
-package com.example.mvvmstarterproject.base
+package com.lucky.task.base
 
 import com.ahmoneam.basecleanarchitecture.base.data.model.BaseResponse
-import com.example.mvvmstarterproject.R
-import com.example.mvvmstarterproject.utils.ConnectivityUtils
-import com.example.mvvmstarterproject.utils.coroutines.ContextProviders
-import com.example.mvvmstarterproject.utils.network.ApplicationException
-import com.example.mvvmstarterproject.utils.network.ErrorType
-import com.example.mvvmstarterproject.utils.network.Result
+import com.lucky.task.R
+import com.lucky.task.utils.ConnectivityUtils
+import com.lucky.task.utils.coroutines.ContextProviders
+import com.lucky.task.utils.network.ApplicationException
+import com.lucky.task.utils.network.ErrorType
+import com.lucky.task.utils.network.Result
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.withContext

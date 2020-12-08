@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject.utils.dataBinding
+package com.lucky.task.utils.dataBinding
 
 import android.view.View
 import androidx.databinding.BindingAdapter

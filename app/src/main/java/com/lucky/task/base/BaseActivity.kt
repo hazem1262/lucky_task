@@ -1,13 +1,13 @@
-package com.example.mvvmstarterproject.base
+package com.lucky.task.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.mvvmstarterproject.di.viewmodels.ViewModelFactory
-import com.example.mvvmstarterproject.utils.EventObserver
-import com.example.mvvmstarterproject.utils.MessageUtils
-import com.example.mvvmstarterproject.utils.network.LoadingHandler
-import com.example.mvvmstarterproject.utils.network.Result
+import com.lucky.task.di.viewmodels.ViewModelFactory
+import com.lucky.task.utils.EventObserver
+import com.lucky.task.utils.MessageUtils
+import com.lucky.task.utils.network.LoadingHandler
+import com.lucky.task.utils.network.Result
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector

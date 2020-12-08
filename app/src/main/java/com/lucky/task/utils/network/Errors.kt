@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject.utils.network
+package com.lucky.task.utils.network
 
 class ApplicationException(
     val type: ErrorType,

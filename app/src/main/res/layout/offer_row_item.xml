@@ -6,7 +6,7 @@
     <data>
         <variable
             name="offer"
-            type="com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer" />
+            type="com.lucky.task.data.remote.offers.OffersResponse.Section.Offer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

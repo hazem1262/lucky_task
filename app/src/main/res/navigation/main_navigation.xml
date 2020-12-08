@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation.xml"
@@ -7,7 +8,7 @@
 
     <fragment
         android:id="@+id/offersListFragment"
-        android:name="com.example.mvvmstarterproject.ui.offers.list.OffersListFragment"
+        android:name="com.lucky.task.ui.offers.list.OffersListFragment"
         android:label="offers_list_fragment"
         tools:layout="@layout/offers_list_fragment" >
         <action
@@ -16,11 +17,11 @@
     </fragment>
     <fragment
         android:id="@+id/offerDetailsFragment"
-        android:name="com.example.mvvmstarterproject.ui.offers.details.OfferDetailsFragment"
+        android:name="com.lucky.task.ui.offers.details.OfferDetailsFragment"
         android:label="offer_details_fragment"
         tools:layout="@layout/offer_details_fragment" >
         <argument
             android:name="offer"
-            app:argType="com.example.mvvmstarterproject.data.remote.offers.OffersResponse$Section$Offer" />
+            app:argType="com.lucky.task.data.remote.offers.OffersResponse$Section$Offer" />
     </fragment>
 </navigation>

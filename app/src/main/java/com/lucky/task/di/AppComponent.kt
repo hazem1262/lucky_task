@@ -1,11 +1,11 @@
-package com.example.mvvmstarterproject.di
+package com.lucky.task.di
 
 import android.app.Application
 import android.content.Context
-import com.example.mvvmstarterproject.application.BaseApplication
-import com.example.mvvmstarterproject.di.modules.ActivityModules
-import com.example.mvvmstarterproject.di.modules.AppModule
-import com.example.mvvmstarterproject.di.viewmodels.ViewModelModule
+import com.lucky.task.application.BaseApplication
+import com.lucky.task.di.modules.ActivityModules
+import com.lucky.task.di.modules.AppModule
+import com.lucky.task.di.viewmodels.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

@@ -1,10 +1,10 @@
-package com.example.mvvmstarterproject.ui.offers.list
+package com.lucky.task.ui.offers.list
 
 import androidx.lifecycle.MutableLiveData
-import com.example.mvvmstarterproject.base.BaseViewModel
-import com.example.mvvmstarterproject.data.remote.offers.OffersResponse.Section.Offer
-import com.example.mvvmstarterproject.data.remote.offers.OffersRepository
-import com.example.mvvmstarterproject.utils.coroutines.ContextProviders
+import com.lucky.task.base.BaseViewModel
+import com.lucky.task.data.remote.offers.OffersResponse.Section.Offer
+import com.lucky.task.data.remote.offers.OffersRepository
+import com.lucky.task.utils.coroutines.ContextProviders
 import javax.inject.Inject
 
 class OffersListViewModel @Inject constructor(contextProvider: ContextProviders, private val offersRepository: OffersRepository)

@@ -1,9 +1,9 @@
-package com.example.mvvmstarterproject.utils
+package com.lucky.task.utils
 
 import android.app.Activity
 import androidx.annotation.ColorRes
 import androidx.annotation.StyleRes
-import com.example.mvvmstarterproject.R
+import com.lucky.task.R
 import com.tapadoo.alerter.Alert
 import com.tapadoo.alerter.Alerter
 

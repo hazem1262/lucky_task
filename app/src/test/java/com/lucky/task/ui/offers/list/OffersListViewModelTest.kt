@@ -1,15 +1,15 @@
-package com.example.mvvmstarterproject.ui.offers.list
+package com.lucky.task.ui.offers.list
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.example.mvvmstarterproject.R
-import com.example.mvvmstarterproject.data.remote.offers.OffersRepository
-import com.example.mvvmstarterproject.data.remote.offers.OffersResponse
-import com.example.mvvmstarterproject.utils.Event
-import com.example.mvvmstarterproject.utils.TestContextProvider
-import com.example.mvvmstarterproject.utils.createRandomOffer
-import com.example.mvvmstarterproject.utils.network.ApplicationException
-import com.example.mvvmstarterproject.utils.network.ErrorType
+import com.lucky.task.R
+import com.lucky.task.data.remote.offers.OffersRepository
+import com.lucky.task.data.remote.offers.OffersResponse
+import com.lucky.task.utils.Event
+import com.lucky.task.utils.TestContextProvider
+import com.lucky.task.utils.createRandomOffer
+import com.lucky.task.utils.network.ApplicationException
+import com.lucky.task.utils.network.ErrorType
 import io.mockk.impl.annotations.MockK
 import org.junit.Before
 import org.junit.Rule
@@ -17,7 +17,7 @@ import org.junit.Test
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import com.example.mvvmstarterproject.utils.network.Result
+import com.lucky.task.utils.network.Result
 import io.mockk.*
 
 @RunWith(JUnit4::class)

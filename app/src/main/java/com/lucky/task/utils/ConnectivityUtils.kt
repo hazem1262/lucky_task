@@ -1,4 +1,4 @@
-package com.example.mvvmstarterproject.utils
+package com.lucky.task.utils
 
 import android.content.Context
 import android.net.ConnectivityManager

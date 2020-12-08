@@ -1,4 +1,4 @@
-package com.ibtikar.mvvm_starter_koin_coroutines.utils.coroutines
+package com.example.mvvmstarterproject.utils.coroutines
 
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext

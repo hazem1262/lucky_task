@@ -1,14 +1,8 @@
-package com.ibtikar.mvvm_starter_koin_coroutines.utils
+package com.example.mvvmstarterproject.utils
 
-import com.ibtikar.mvvm_starter_koin_coroutines.utils.coroutines.ContextProviders
+import com.example.mvvmstarterproject.utils.coroutines.ContextProviders
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext
-
-/**
- * Created by Mohammed Hemdan on 7/26/20.
- * Email : mohammed.hemdan.faraj@gmail.com
- * Github : https://github.com/mhemdan
- */
 
 class TestContextProvider : ContextProviders() {
     override val Main: CoroutineContext

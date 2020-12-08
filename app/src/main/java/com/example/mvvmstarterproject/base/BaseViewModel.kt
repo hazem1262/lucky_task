@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mvvmstarterproject.utils.Event
+import com.example.mvvmstarterproject.utils.coroutines.ContextProviders
 import com.example.mvvmstarterproject.utils.network.ApplicationException
 import com.example.mvvmstarterproject.utils.network.ErrorType
 import com.example.mvvmstarterproject.utils.network.Result
@@ -12,7 +13,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-open class BaseViewModel: ViewModel() {
+open class BaseViewModel(val contextProvider: ContextProviders): ViewModel() {
     val error = MutableLiveData<Event<Result.Error>>()
     val loading =
         MutableLiveData<Event<Result.Loading>>().apply { value = Event(Result.Loading(false)) }
@@ -22,7 +23,7 @@ open class BaseViewModel: ViewModel() {
         crossinline function: suspend CoroutineScope.() -> Unit
     ): Job {
         loading.value = Event(Result.Loading(showLoading))
-        return viewModelScope.launch {
+        return viewModelScope.launch(contextProvider.Main) {
             try {
                 function()
             } catch (throwable: Throwable) {

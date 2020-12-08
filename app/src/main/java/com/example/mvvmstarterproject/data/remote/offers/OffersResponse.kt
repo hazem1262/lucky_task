@@ -31,8 +31,8 @@ data class OffersResponse(
             val tags: String?,
             @SerializedName("title")
             val title: String?,
-            var sectionTitle:String = "",
-            var isSectionVisible:Boolean = false
+            var sectionTitle:String? = "",
+            var isSectionVisible:Boolean? = false
         ):Parcelable{
             fun getFavouriteCountStyled():String{
                 return if (favoriteCount?:0 < 1000){

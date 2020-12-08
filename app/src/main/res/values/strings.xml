@@ -7,4 +7,5 @@
     <string name="redemption_cap">REDEMPTIONS CAP: %s</string>
     <string name="back_button">back button</string>
     <string name="offerTransitionName">Offer transtion name</string>
+    <string name="error_unexpected">Un expected error</string>
 </resources>

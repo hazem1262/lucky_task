@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-name: Test, Build and Release apk
+name: Test, Build and Release apk 
 jobs:
   apk:
     name: generate releases with APK

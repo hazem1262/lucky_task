@@ -9,4 +9,5 @@
     <string name="back_button">back button</string>
     <string name="offerTransitionName">Offer transtion name</string>
     <string name="error_unexpected">Un expected error</string>
+    <string name="no_offers">There is no offers now !</string>
 </resources>

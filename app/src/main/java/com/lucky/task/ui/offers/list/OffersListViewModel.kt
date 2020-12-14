@@ -12,6 +12,7 @@ class OffersListViewModel @Inject constructor(contextProvider: ContextProviders,
 
     val offersLiveData: MutableLiveData<List<Offer>> = MutableLiveData()
     val offersPageTitle:MutableLiveData<String> = MutableLiveData()
+    val noOffersLiveData:MutableLiveData<Boolean> = MutableLiveData()
 
     fun getOffersList(){
         wrapBlockingOperation {
@@ -29,6 +30,7 @@ class OffersListViewModel @Inject constructor(contextProvider: ContextProviders,
                 }
                 offersLiveData.postValue(offers)
                 offersPageTitle.postValue(offersResponse.data.title)
+                noOffersLiveData.postValue(offers.size == 0)
             }
         }
     }

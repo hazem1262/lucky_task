@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lucky.task.R
 import com.lucky.task.data.remote.offers.OffersResponse.Section.Offer
 import com.lucky.task.databinding.OfferRowItemBinding
+import com.lucky.task.databinding.OffersHeaderBinding
 
 class OffersAdapter(val selectOffer:(Offer)->Unit): ListAdapter<Offer, RecyclerView.ViewHolder>(diffCallBack)  {
     companion object {
@@ -24,7 +25,6 @@ class OffersAdapter(val selectOffer:(Offer)->Unit): ListAdapter<Offer, RecyclerV
                 oldItem: Offer,
                 newItem: Offer
             ): Boolean = oldItem.detailUrl == newItem.detailUrl
-
         }
         @JvmStatic
         @BindingAdapter("offers")
@@ -37,16 +37,36 @@ class OffersAdapter(val selectOffer:(Offer)->Unit): ListAdapter<Offer, RecyclerV
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return OfferViewHolder(
-            DataBindingUtil.inflate(
-                LayoutInflater.from(parent.context),
-                R.layout.offer_row_item, parent, false
+        return when(viewType){
+            ITEM_VIEW_TYPE_HEADER -> OffersHeaderViewHolder(
+                DataBindingUtil.inflate(
+                    LayoutInflater.from(parent.context),
+                    R.layout.offers_header, parent, false
+                )
             )
-        )
+            ITEM_VIEW_TYPE_ITEM -> OfferViewHolder(
+                DataBindingUtil.inflate(
+                    LayoutInflater.from(parent.context),
+                    R.layout.offer_row_item, parent, false
+                )
+            )
+            else -> throw ClassCastException("Unknown viewType $viewType")
+        }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position == 0) ITEM_VIEW_TYPE_HEADER else ITEM_VIEW_TYPE_ITEM
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as OfferViewHolder).bind(currentList[position])
+        when(holder){
+            is OffersHeaderViewHolder -> holder.bind()
+            is OfferViewHolder -> holder.bind(currentList[position - 1])
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return if (currentList.size > 0) currentList.size + 1 else 0
     }
 
     inner class OfferViewHolder(private var binding: OfferRowItemBinding):
@@ -61,4 +81,17 @@ class OffersAdapter(val selectOffer:(Offer)->Unit): ListAdapter<Offer, RecyclerV
             }
         }
     }
+
+    inner class OffersHeaderViewHolder(private var binding: OffersHeaderBinding):
+        RecyclerView.ViewHolder(binding.root){
+        fun bind(){
+            binding.apply {
+                offersCount = currentList.size
+                executePendingBindings()
+            }
+        }
+    }
 }
+
+private const val ITEM_VIEW_TYPE_HEADER = 0
+private const val ITEM_VIEW_TYPE_ITEM = 1

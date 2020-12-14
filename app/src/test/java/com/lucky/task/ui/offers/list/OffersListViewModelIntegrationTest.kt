@@ -81,15 +81,4 @@ class OffersListViewModelIntegrationTest {
         }
     }
 
-    @Test
-    fun `get offers displays the page title returned from the api`() {
-        every { connectivityUtils.isNetworkConnected } returns true
-        viewModel.getOffersList()
-        val offersResponse = Gson().fromJson(dummyOffersJson, OffersResponse::class.java)
-
-        coVerify {
-            pageTitleObserver.onChanged(offersResponse.title)
-        }
-    }
-
 }

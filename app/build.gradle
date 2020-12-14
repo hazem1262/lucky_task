@@ -6,7 +6,7 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.lucky.task"
         minSdkVersion 23
@@ -21,6 +21,7 @@ android {
             buildConfigField 'String', 'SERVER_URL', '"https://www.nasable.com/luckytest/api/"'
         }
         release {
+            buildConfigField 'String', 'SERVER_URL', '"https://www.nasable.com/luckytest/api/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

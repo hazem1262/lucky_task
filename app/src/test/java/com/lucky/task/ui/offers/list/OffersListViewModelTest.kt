@@ -32,6 +32,9 @@ class OffersListViewModelTest{
     lateinit var loadingObserver: Observer<Event<Result.Loading>>
     @MockK
     lateinit var errorObserver: Observer<Event<Result.Error>>
+    @MockK
+    lateinit var noOffersObserver: Observer<Boolean>
+
     private val contextProvidersTest = TestContextProvider()
     private lateinit var viewModel: OffersListViewModel
 
@@ -69,6 +72,7 @@ class OffersListViewModelTest{
         viewModel.offersLiveData.observeForever(offersListObserver)
         viewModel.loading.observeForever(loadingObserver)
         viewModel.error.observeForever(errorObserver)
+        viewModel.noOffersLiveData.observeForever(noOffersObserver)
     }
 
     @Test
@@ -101,4 +105,13 @@ class OffersListViewModelTest{
         }
     }
 
+    @Test
+    fun `get offers post true to no offers live data if there is no offers`() {
+        // return an empty response
+        coEvery { offersRepository.getListOfOffers() } returns Result.Success(OffersResponse(arrayListOf(), "offers"))
+        viewModel.getOffersList()
+        coVerify {
+            noOffersObserver.onChanged(true)
+        }
+    }
 }

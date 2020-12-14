@@ -5,7 +5,9 @@
     <string name="success">Success</string>
     <string name="price">Price</string>
     <string name="redemption_cap">REDEMPTIONS CAP: %s</string>
+    <string name="offers_count">%s Offers</string>
     <string name="back_button">back button</string>
     <string name="offerTransitionName">Offer transtion name</string>
     <string name="error_unexpected">Un expected error</string>
+    <string name="no_offers">There is no offers now !</string>
 </resources>
